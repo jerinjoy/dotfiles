@@ -1,0 +1,156 @@
+"My Settings File - Jerin
+syntax enable
+set ai
+set si
+set sta
+set ts=8
+set sw=4
+set ul=1000
+set bs=2
+set sm
+set mat=5
+set mps=(:),{:},[:]
+set is
+let &hlsearch = 1
+set wildmenu
+" set nu
+
+" Indent related
+filetype plugin indent on
+" On pressing tab, insert 2 spaces
+set expandtab
+" show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
+
+"Stop cursor blinking
+set gcr=a:blinkon0
+
+" highlight line on which cursor is
+set cursorline
+
+" https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+" https://stackoverflow.com/questions/1919028/how-to-show-vertical-line-to-wrap-the-line-in-vim/3787678#3787678
+" https://codeyarns.com/2011/07/29/vim-set-color-of-colorcolumn/
+set colorcolumn=80
+highlight ColorColumn ctermbg=Black
+
+" indentline
+" let g:indentLine_char_list = ['|']
+
+" enable mouse usage in terminal
+" set mouse=a
+" disable mouse usage in terminal
+set mouse=
+
+" cycle through open buffers with Tab/Shift-Tab
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
+" close current open buffer with Ctrl-k
+:nnoremap <C-k> :bd<CR>
+
+" airline related
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme='dracula'
+" shorten the mode
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+   \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ }
+" don't show the most common filetype in airline
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+noremap!<Esc><Esc>:match NONE<CR>
+
+" indicate that the file has changed.
+" https://stackoverflow.com/questions/19614665/how-to-make-vim-indicate-the-file-has-changed-since-last-save
+set laststatus=2
+set statusline=[%n]\ %<%f%h%m
+
+" prevent the line from wrapping while typing
+" set wrap linebreak textwidth=0
+"
+" enable pathogen
+execute pathogen#infect()
+
+" Setting the color scheme
+if (has('nvim'))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+endif
+
+" Used this guide to fix the colors in dracula
+" https://github.com/dracula/vim/issues/96
+let g:dracula_colorterm = 0
+let g:dracula_italic = 0
+set termguicolors
+colorscheme dracula
+
+
+" NERDTree
+"   https://github.com/preservim/nerdtree
+" start NERDTree on start
+" autocmd vimenter * NERDTree
+" Toggle for NERDTree
+map <F8> :NERDTreeToggle<CR>
+
+" tagbar:
+"   https://github.com/majutsushi/tagbar
+" Toggle Tagbar
+" Point to exuberant ctags
+let g:tagbar_ctags_bin = "/opt/homebrew/bin/ctags"
+nmap <C-n> :TagbarToggle<CR>
+
+" FZF related
+" Reference: https://pragmaticpineapple.com/improving-vim-workflow-with-fzf/
+" Search files in the Git repo
+nnoremap <C-p> :GFiles<Cr>
+" Search all files for string
+nnoremap <C-g> :Ag<Cr>
+
+" Set .isa to be of type C++. This is for the Gem5 code
+" Set the filetype based on the file's extension, but only if
+" 'filetype' has not already been set
+au BufRead,BufNewFile *.isa setfiletype cpp
+
+" disable folding
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_initial_foldlevel=1
+
+" trim trailing whitespace
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+autocmd BufWritePre * :call TrimWhitespace()
+
+" resize split panes automatically when resizing terminal windows.
+autocmd VimResized * wincmd =
+
+" Don't allow editing of read only files
+autocmd BufRead * call RONoEdit()
+function! RONoEdit()
+  if &readonly == 1
+    set nomodifiable
+  else
+    set modifiable
+  endif
+endfunction
+" END Don't allow editing of read only files
+

@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+# handle SIGINT by killing all spawned subprocesses
+trap 'killall' INT
+
+killall() {
+  trap '' INT TERM     # ignore INT and TERM while shutting down
+  echo "**** Got a SIGINT ... Shutting down... ****"
+  kill -TERM 0
+  wait
+  echo DONE
+  exit $RET
+}
+
+ITERATIONS=0
+
+RET=0
+while [ $RET -eq 0 ]; do
+    : $((ITERATIONS=ITERATIONS+1))
+    echo $ITERATIONS
+    $@
+    RET=$?
+done
+
+exit $RET
+
