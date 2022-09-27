@@ -1,30 +1,33 @@
-[submodule ".tmux/plugins/tmux"]
-	path = dot_files/.tmux/plugins/tmux
+[submodule "homedir_files/tmux/plugins/tmux"]
+	path = homedir_files/tmux/plugins/tmux
 	url = https://github.com/dracula/tmux.git
-[submodule ".tmux/plugins/tmux-sensible"]
-	path = dot_files/.tmux/plugins/tmux-sensible
+[submodule "homedir_files/tmux/plugins/tmux-sensible"]
+	path = homedir_files/tmux/plugins/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible.git
-[submodule ".tmux/plugins/tpm"]
-	path = dot_files/.tmux/plugins/tpm
+[submodule "homedir_files/tmux/plugins/tpm"]
+	path = homedir_files/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule ".vim/bundle/fzf.vim"]
-	path = dot_files/.vim/bundle/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
-[submodule ".vim/bundle/nerdtree"]
-	path = dot_files/.vim/bundle/nerdtree
-	url = https://github.com/preservim/nerdtree.git
-[submodule ".vim/bundle/tagbar"]
-	path = dot_files/.vim/bundle/tagbar
-	url = https://github.com/preservim/tagbar.git
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = dot_files/.vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule ".vim/bundle/dracula"]
-	path = dot_files/.vim/bundle/dracula
+[submodule "homedir_files/vim/bundle/dracula"]
+	path = homedir_files/vim/bundle/dracula
 	url = https://github.com/dracula/vim.git
-[submodule ".vim/bundle/fzf"]
-	path = dot_files/.vim/bundle/fzf
+[submodule "homedir_files/vim/bundle/fzf"]
+	path = homedir_files/vim/bundle/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule ".vim/bundle/vim-airline"]
-	path = dot_files/.vim/bundle/vim-airline
+[submodule "homedir_files/vim/bundle/fzf.vim"]
+	path = homedir_files/vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "homedir_files/vim/bundle/nerdtree"]
+	path = homedir_files/vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "homedir_files/vim/bundle/tagbar"]
+	path = homedir_files/vim/bundle/tagbar
+	url = https://github.com/preservim/tagbar.git
+[submodule "homedir_files/vim/bundle/vim-airline"]
+	path = homedir_files/vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule "homedir_files/vim/bundle/vim-airline-themes"]
+	path = homedir_files/vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "homedir_files/vim/bundle/vim-fugitive"]
+	path = homedir_files/vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git

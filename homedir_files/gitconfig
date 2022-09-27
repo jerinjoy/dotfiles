@@ -1,3 +1,7 @@
+[user]
+	email = jerin@joy
+	name = Jerin Joy
+
 [alias]
 
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -6,7 +10,7 @@
     recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 
 [core]
-	excludesfile = $HOME/.gitignore_global
+  excludesfile = ~/.gitignore_global
   pager = delta
 
 [interactive]
@@ -31,8 +35,6 @@
 
 [commit]
 	template = $HOME/.stCommitMsg
-[init]
-	defaultBranch = rivos/main
 [color]
 	ui = auto
 #[sequence]
@@ -46,3 +48,5 @@
   hide-status = 1
   hide-dirty = 1
   hide-info = 1
+[push]
+	autoSetupRemote = true

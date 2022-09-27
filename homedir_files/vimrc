@@ -143,6 +143,8 @@ autocmd BufWritePre * :call TrimWhitespace()
 " resize split panes automatically when resizing terminal windows.
 autocmd VimResized * wincmd =
 
+" Disable Github copliot by default
+
 " Don't allow editing of read only files
 autocmd BufRead * call RONoEdit()
 function! RONoEdit()

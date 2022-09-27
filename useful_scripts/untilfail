@@ -1,26 +1,13 @@
 #!/bin/zsh
 
-# handle SIGINT by killing all spawned subprocesses
-trap 'killall' INT
+# Pipefail explanation:
+# https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
+set -euo pipefail
 
-killall() {
-  trap '' INT TERM     # ignore INT and TERM while shutting down
-  echo "**** Got a SIGINT ... Shutting down... ****"
-  kill -TERM 0
-  wait
-  echo DONE
-  exit $RET
-}
-
-ITERATIONS=0
-
-RET=0
-while [ $RET -eq 0 ]; do
-    : $((ITERATIONS=ITERATIONS+1))
-    echo $ITERATIONS
-    $@
-    RET=$?
+n=0
+while test 0 -eq $? ; do
+  n=$(($n+1))
+  echo $n
+  $@
 done
-
-exit $RET
 

@@ -23,11 +23,6 @@ abbr -a vim nvim
 
 abbr -a h "history | ag"
 abbr -a c "clear"
-#abbr -a r "replay module load rivos/init; and replay module load protobuf"
-
-if test -d /rivos/riscv-gnu-toolchain/bin
-  fish_add_path -aP /rivos/riscv-gnu-toolchain/bin
-end
 
 if test -d /opt/homebrew/bin
   fish_add_path -pmP /opt/homebrew/bin
@@ -37,12 +32,8 @@ if test -d $HOME/.cargo/bin/
   fish_add_path -pmP $HOME/.cargo/bin/
 end
 
-if test -d $HOME/bin
-  fish_add_path -pmP $HOME/bin
-end
-
-if test -d /home/joy/.local/bin
-  fish_add_path -pmP /home/joy/.local/bin
+if test -d $HOME/.local/bin
+  fish_add_path -pmP $HOME/.local/bin
 end
 
 # Add the ccache softlinks for the compilers to the path.
@@ -54,13 +45,9 @@ if test -d /Users/joy/workspace/dv-release/darwin/bin
   fish_add_path -aP /Users/joy/workspace/dv-release/darwin/bin
 end
 
-# load up the rivos/init module
-switch (uname)
-    case Linux
-            replay module load rivos/init;
-            replay module load protobuf;
+if test -d /Users/joy/Library/Python/3.10/bin
+  fish_add_path -aP /Users/joy/Library/Python/3.10/bin
 end
-
 
 # Tide Colors
 set -x tide_git_branch_color f1fa8c # yellow
