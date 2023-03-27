@@ -1,0 +1,52 @@
+[user]
+	email = jerin@joy
+	name = Jerin Joy
+
+[alias]
+
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+    # list of the the recent 10 branches that I've worked on
+    recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+
+[core]
+  excludesfile = ~/.gitignore_global
+  pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+    # To disable the line numbers in side-by-side view, but keep a vertical delimiter line between the left and right panels
+#    line-numbers-left-format = ""
+#    line-numbers-right-format = "│ "
+    syntax-theme = Dracula
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[commit]
+	template = $HOME/.stCommitMsg
+[color]
+	ui = auto
+#[sequence]
+#  editor = "if [[ `uname` -eq "Darwin" ]]; then ED='code --wait'; else ED='vim'; fi; $ED"
+[alias]
+        fcommit = commit --no-verify
+
+# We're using the git info from the starship prompt so disable the one from ZSH
+# to speed things up.
+[oh-my-zsh]
+  hide-status = 1
+  hide-dirty = 1
+  hide-info = 1
+[push]
+	autoSetupRemote = true

@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+# Pipefail explanation:
+# https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
+set -euo pipefail
+
+n=0
+while test 0 -eq $? ; do
+  n=$(($n+1))
+  echo $n
+  $@
+done
+

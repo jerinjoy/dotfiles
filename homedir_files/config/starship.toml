@@ -1,0 +1,57 @@
+# Install to .config/starship.toml
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$time\
+$status\
+$shell\
+$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[git_branch]
+style = "bold #ff79c6"
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style = "bold #ff5555"
+ahead = "$count commits ahead of remote "
+behind = "$count commits behind remote "
+
+conflicted = "branch has merge conflicts "
+diverged = "$ahead_count ahead of remote. $behind_count behind remote. "
+modified = "$count files modified "
+
+stashed = "$count stashes "
+untracked = "$count files untracked "
+
+staged = "$count files staged "
+renamed = "$count files renamed "
+deleted = "$count files deleted "
+
+format = '([$conflicted$diverged$modified](bold red)[$ahead_behind](bold purple)[$stashed$untracked](bold green)[$staged$renamed$deleted](bold cyan))'
+
+# We don't want to show info about the C/Python versions
+[python]
+disabled = true
+
+[c]
+disabled = true
+
+[character]
+error_symbol = "[❯](bold #ff5555)"
+success_symbol = "[❯](bold #50fa7b)"
+
+[directory]
+style = "bold #50fa7b"
+
+
