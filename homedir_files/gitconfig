@@ -1,5 +1,5 @@
 [user]
-	email = jerin@joy
+	email = github@jerin.me
 	name = Jerin Joy
 
 [alias]
@@ -9,9 +9,13 @@
     # list of the the recent 10 branches that I've worked on
     recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 
+    # everything I've checked in since last night
+    today = log --since=00:00:00 --all --no-merges --oneline --author=github@jerin.me
+
 [core]
   excludesfile = ~/.gitignore_global
   pager = delta
+	editor = nvim
 
 [interactive]
     diffFilter = delta --color-only
@@ -25,7 +29,19 @@
     # To disable the line numbers in side-by-side view, but keep a vertical delimiter line between the left and right panels
 #    line-numbers-left-format = ""
 #    line-numbers-right-format = "│ "
-    syntax-theme = Dracula
+    # Tokyo at night colorscheme
+    # https://github.com/folke/tokyonight.nvim/tree/main/extras/delta
+    minus-style                   = syntax "#37222c"
+    minus-non-emph-style          = syntax "#37222c"
+    minus-emph-style              = syntax "#713137"
+    minus-empty-line-marker-style = syntax "#37222c"
+    line-numbers-minus-style      = "#b2555b"
+    plus-style                    = syntax "#20303b"
+    plus-non-emph-style           = syntax "#20303b"
+    plus-emph-style               = syntax "#2c5a66"
+    plus-empty-line-marker-style  = syntax "#20303b"
+    line-numbers-plus-style       = "#266d6a"
+    line-numbers-zero-style       = "#3b4261"
 
 [merge]
     conflictstyle = diff3
@@ -37,8 +53,7 @@
 	template = $HOME/.stCommitMsg
 [color]
 	ui = auto
-#[sequence]
-#  editor = "if [[ `uname` -eq "Darwin" ]]; then ED='code --wait'; else ED='vim'; fi; $ED"
+
 [alias]
         fcommit = commit --no-verify
 
@@ -50,3 +65,8 @@
   hide-info = 1
 [push]
 	autoSetupRemote = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
