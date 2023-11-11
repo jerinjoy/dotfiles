@@ -1,9 +1,12 @@
-[submodule "homedir_files/tmux/plugins/tmux"]
-	path = homedir_files/tmux/plugins/tmux
-	url = https://github.com/dracula/tmux.git
 [submodule "homedir_files/tmux/plugins/tmux-sensible"]
 	path = homedir_files/tmux/plugins/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible.git
 [submodule "homedir_files/tmux/plugins/tpm"]
 	path = homedir_files/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "homedir_files/config/nvim"]
+	path = homedir_files/config/nvim
+	url = git@github.com:jerinjoy/kickstart.nvim.git
+[submodule "homedir_files/tmux/plugins/tmux-theme"]
+	path = homedir_files/tmux/plugins/tmux-theme
+	url = git@github.com:jerinjoy/tmux-theme.git

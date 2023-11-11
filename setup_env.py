@@ -222,7 +222,7 @@ def main():
     if 'fish_plugins' in config_data:
         fisher.add_plugins(config_data['fish_plugins'])
     if args.add_fish_plugins is not None:
-        fish.add_plugins(args.add_fish_plugins)
+        fisher.add_plugins(args.add_fish_plugins)
 
     file.close()
 

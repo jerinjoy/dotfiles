@@ -3,6 +3,7 @@ homedir_files/config/fish/fish_plugins
 homedir_files/config/fish/fish_variables
 homedir_files/config/fish/functions/
 homedir_files/config/fish/themes/
+homedir_files/config/fish/corporate.config.fish
 fishd.tmp.*
 homedir_files/config/lvim/lazy-lock.json
 homedir_files/config/nvim/lazy-lock.json
