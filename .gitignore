@@ -8,3 +8,4 @@ fishd.tmp.*
 homedir_files/config/lvim/lazy-lock.json
 homedir_files/config/nvim/lazy-lock.json
 homedir_files/vim/plugged
+homedir_files/config/zsh-abbr/
