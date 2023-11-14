@@ -25,8 +25,6 @@ abbr -a gsubls "git submodule status --recursive"
 abbr -a h "history | ag"
 abbr -a c "clear"
 
-add_abbr_requiring_binaries
-
 switch (uname)
   case Darwin
     if test -d /opt/homebrew/bin
@@ -37,6 +35,9 @@ switch (uname)
     if test -d /opt/homebrew/opt/ccache/libexec
       fish_add_path -pmP /opt/homebrew/opt/ccache/libexec
   end
+
+  # These are only installed by default on macOS using Homebrew
+  add_abbr_requiring_binaries
 end
 
 if test -d $HOME/.cargo/bin/
