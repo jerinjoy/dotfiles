@@ -110,12 +110,12 @@ class Fisher:
 
 class Homebrew:
     def __init__(self):
+        self.packages_to_install = set()
+
         self.brew_binary = shutil.which('brew')
         if self.brew_binary is None:
             log.warning("Homebrew not found in path, skipping homebrew package installation")
             return
-
-        self.packages_to_install = set()
 
     def get_installed_packages(self):
         if self.brew_binary is None:
