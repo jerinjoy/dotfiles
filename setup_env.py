@@ -89,21 +89,14 @@ class Fisher:
         self.shell = os.environ.get('SHELL')
         if self.shell is None or re.match(r'.*fish', self.shell) is None:
             self.shell = None
-            log.warning("fish is not the default shell. Will skip fisher installation")
+            log.warning("fish is not the default shell.")
 
         self.plugins = set()
 
     def add_plugins(self, plugins):
-        if self.shell is None:
-            return
-
         self.plugins.update(plugins)
 
     def install_plugins(self):
-        if self.shell is None:
-            log.warning("fish is not the default shell. Will skip fisher plugin installation")
-            return
-
         # Couldn't figure out a way to check if a fish function is installed
         log.info("Installing fisher...")
         os.system("fish -C \"curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && exit\"")
