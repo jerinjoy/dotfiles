@@ -19,6 +19,6 @@ homebrew_packages:
 fish_plugins:
   - aral/tide
   - jethrokuan/z
-  - jorgebucaran/replay.fish
+    #  - jorgebucaran/replay.fish
   - PatrickF1/fzf.fish
   - vitallium/tokyonight-fish
