@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import sys
+import signal
 import yaml
 
 def run_command_and_return_stdout(command, run_directory):
@@ -90,6 +91,11 @@ class Fisher:
         if self.shell is None or re.match(r'.*fish', self.shell) is None:
             self.shell = None
             log.warning("fish is not the default shell.")
+        else:
+            result = subprocess.run(['fish', "-v"], capture_output=True, text=True)
+            if result.returncode != 0:
+                log.error("fish shell is not available in path")
+                sys.exit(1)
 
         self.plugins = set()
 
