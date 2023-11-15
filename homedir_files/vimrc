@@ -60,7 +60,7 @@ set mouse=
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='dracula'
+"let g:airline_theme='dracula'
 " shorten the mode
 let g:airline_mode_map = {
     \ '__' : '-',
@@ -85,22 +85,13 @@ set statusline=[%n]\ %<%f%h%m
 
 " prevent the line from wrapping while typing
 " set wrap linebreak textwidth=0
-"
-" enable pathogen
-execute pathogen#infect()
-
-" Setting the color scheme
-if (has('nvim'))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-endif
 
 " Used this guide to fix the colors in dracula
 " https://github.com/dracula/vim/issues/96
-let g:dracula_colorterm = 0
-let g:dracula_italic = 0
-set termguicolors
-colorscheme dracula
-
+"--let g:dracula_colorterm = 0
+"--let g:dracula_italic = 0
+"--set termguicolors
+"--colorscheme dracula
 
 " NERDTree
 "   https://github.com/preservim/nerdtree
@@ -144,6 +135,7 @@ autocmd BufWritePre * :call TrimWhitespace()
 autocmd VimResized * wincmd =
 
 " Disable Github copliot by default
+let g:copilot_enabled = v:false
 
 " Don't allow editing of read only files
 autocmd BufRead * call RONoEdit()
@@ -155,4 +147,31 @@ function! RONoEdit()
   endif
 endfunction
 " END Don't allow editing of read only files
+
+" vim-plug
+" Automatic installation:
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+" Add all the plugins here:
+
+Plug 'sheerun/vim-polyglot'
+Plug 'ghifarit53/tokyonight-vim'
+
+call plug#end()
+
+
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
+let g:tokyonight_transparent_background = 1
+
+let g:airline_theme = "tokyonight"
 
