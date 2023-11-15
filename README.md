@@ -8,9 +8,11 @@ SPDX-License-Identifier: Apache-2.0
 
 Installs my dev environment.
 
-I use `fish` as my default shell, `nvim`/`lvim` as my editor in the terminal, and `tmux` as my terminal multiplexer.
+I use [`fish`](https://fishshell.com) as my default shell, [Neovim](https://neovim.io) as my editor in the terminal, and [`tmux`](https://github.com/tmux/tmux/wiki) as my terminal multiplexer.
 
-See `[config.yaml](config.yaml)` to for the packages that will be installed.
+![terminal](docs/terminal.jpg)
+
+See [`config.yaml`](config.yaml) to for the packages that will be installed.
 
 ## Installation
 
