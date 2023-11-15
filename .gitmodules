@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
 [submodule "homedir_files/tmux/plugins/tmux-sensible"]
 	path = homedir_files/tmux/plugins/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible.git

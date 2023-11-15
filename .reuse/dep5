@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: reuse
+Source: https://github.com/fsfe/reuse-tool
+
+
+Files: homedir_files/vim/autoload/plug.vim
+Copyright: 2023 by Jerin Joy
+License: Apache-2.0

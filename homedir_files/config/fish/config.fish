@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
 set -x EDITOR nvim
 
 # These aliases depend on the binaries being available.

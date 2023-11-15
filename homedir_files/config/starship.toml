@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # Install to .config/starship.toml
 
 # Get editor completions based on the config schema
@@ -53,5 +57,3 @@ success_symbol = "[❯](bold #50fa7b)"
 
 [directory]
 style = "bold #50fa7b"
-
-

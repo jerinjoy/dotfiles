@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import argparse
 import logging as log
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
-import signal
+
 import yaml
+
 
 def run_command_and_return_stdout(command, run_directory):
     log.debug(f"Running command: {' '.join(command)}")
@@ -43,6 +49,7 @@ def run_command_and_return_stdout(command, run_directory):
             os.killpg(group_pid, signal.SIGTERM)
         raise Exception(f"Command: {' '.join(command)} interrupted.")
 
+
 def softlink_to_homedir(source_dir, force_overwrite):
     script_dir = os.path.dirname(os.path.realpath(__file__))
     dir_with_files_to_softlink = os.path.join(script_dir, source_dir)
@@ -54,45 +61,51 @@ def softlink_to_homedir(source_dir, force_overwrite):
         dotfile = os.path.join(dir_with_files_to_softlink, file)
         dotfile_softlink = os.path.join(os.path.expanduser("~"), f".{file}")
 
-        if os.path.isfile(dotfile_softlink) or os.path.islink(dotfile_softlink) or os.path.isdir(dotfile_softlink):
+        if (
+            os.path.isfile(dotfile_softlink)
+            or os.path.islink(dotfile_softlink)
+            or os.path.isdir(dotfile_softlink)
+        ):
             log.warning(f"{dotfile_softlink} already exists")
             if not force_overwrite:
-                overwrite = input("Overwrite %s? [y/N] " % dotfile_softlink)
-                if not re.match(r'^[yY]$', overwrite):
+                overwrite = input(f"Overwrite {dotfile_softlink}? [y/N] ")
+                if not re.match(r"^[yY]$", overwrite):
                     continue
 
             if os.path.islink(dotfile_softlink) or os.path.isfile(dotfile_softlink):
                 os.remove(dotfile_softlink)
-            else :
+            else:
                 shutil.rmtree(dotfile_softlink)
 
-        log.debug("Softlinking: %s -> %s" % (dotfile_softlink, dotfile))
+        log.debug(f"Softlinking: {dotfile_softlink} -> {dotfile}")
         os.symlink(dotfile, dotfile_softlink)
 
     log.info("Softlinked homedir contents")
 
+
 def initialize_submodules():
     # find git executable in path
-    git_binary = shutil.which('git')
+    git_binary = shutil.which("git")
     if git_binary is None:
         sys.exit("Git not found in path")
 
-    submodule_init_command = [
-        git_binary, 'submodule', 'update', '--init', '--recursive'
-    ]
+    submodule_init_command = [git_binary, "submodule", "update", "--init", "--recursive"]
 
-    run_command_and_return_stdout(submodule_init_command, os.path.dirname(os.path.realpath(__file__)))
+    run_command_and_return_stdout(
+        submodule_init_command, os.path.dirname(os.path.realpath(__file__))
+    )
 
     log.info("Initialized submodules")
 
+
 class Fisher:
     def __init__(self):
-        self.shell = os.environ.get('SHELL')
-        if self.shell is None or re.match(r'.*fish', self.shell) is None:
+        self.shell = os.environ.get("SHELL")
+        if self.shell is None or re.match(r".*fish", self.shell) is None:
             self.shell = None
             log.warning("fish is not the default shell.")
         else:
-            result = subprocess.run(['fish', "-v"], capture_output=True, text=True)
+            result = subprocess.run(["fish", "-v"], capture_output=True, text=True)
             if result.returncode != 0:
                 log.error("fish shell is not available in path")
                 sys.exit(1)
@@ -105,20 +118,23 @@ class Fisher:
     def install_plugins(self):
         # Couldn't figure out a way to check if a fish function is installed
         log.info("Installing fisher...")
-        os.system("fish -C \"curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && exit\"")
+        os.system(
+            'fish -C "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && exit"'
+        )
 
         for plugin in self.plugins:
             log.info(f"Installing fisher plugin {plugin}...")
-            os.system(f"fish -C \"fisher install {plugin} && exit\"")
+            os.system(f'fish -C "fisher install {plugin} && exit"')
 
     def get_plugins_to_install(self):
         return self.plugins
+
 
 class Homebrew:
     def __init__(self):
         self.packages_to_install = set()
 
-        self.brew_binary = shutil.which('brew')
+        self.brew_binary = shutil.which("brew")
         if self.brew_binary is None:
             log.warning("Homebrew not found in path, skipping homebrew package installation")
             return
@@ -127,14 +143,14 @@ class Homebrew:
         if self.brew_binary is None:
             return None
 
-        brew_list_command = [
-            self.brew_binary, 'list'
-        ]
+        brew_list_command = [self.brew_binary, "list"]
 
-        ret = run_command_and_return_stdout(brew_list_command, os.path.dirname(os.path.realpath(__file__)))
+        ret = run_command_and_return_stdout(
+            brew_list_command, os.path.dirname(os.path.realpath(__file__))
+        )
 
         # convert to list of packages
-        installed_packages = ret.decode('utf-8').split('\n')
+        installed_packages = ret.decode("utf-8").split("\n")
         return installed_packages
 
     def add_packages(self, packages):
@@ -152,50 +168,55 @@ class Homebrew:
                 log.info(f"Homebrew {package} already installed, skipping...")
                 continue
 
-            brew_install_command = [
-                self.brew_binary, 'install', package
-            ]
+            brew_install_command = [self.brew_binary, "install", package]
 
             log.info(f"Installing {package} with Homebrew...")
 
-            run_command_and_return_stdout(brew_install_command, os.path.dirname(os.path.realpath(__file__)))
+            run_command_and_return_stdout(
+                brew_install_command, os.path.dirname(os.path.realpath(__file__))
+            )
 
     def get_packages_to_install(self):
         return self.packages_to_install
 
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--config_file',
-                        help=f'YAML config file.',
-                        required=False,
-                        default = 'config.yaml',
-                        type=str)
-    parser.add_argument('--add_homebrew_packages',
-                        help=f'Additional Homebrew packages to install (macOS only)',
-                        nargs='+',
-                        required=False,
-                        default = None,
-                        type=str)
-    parser.add_argument('--add_fish_plugins',
-                        help=f'Additional fish plugins to install',
-                        nargs='+',
-                        required=False,
-                        default = None,
-                        type=str)
-    parser.add_argument('-f',
-                        '--force',
-                        help='Overwite existing files if they exist.',
-                        action='store_true',
-                        default=False)
-    parser.add_argument('--dry_run',
-                        help='List the changes that will be made and the packages that will be installed.',
-                        action='store_true',
-                        default=False)
-    parser.add_argument('-v',
-                        '--verbose',
-                        help='Verbose output.',
-                        action='store_true',
-                        default=False)
+    parser.add_argument(
+        "--config_file", help="YAML config file.", required=False, default="config.yaml", type=str
+    )
+    parser.add_argument(
+        "--add_homebrew_packages",
+        help="Additional Homebrew packages to install (macOS only)",
+        nargs="+",
+        required=False,
+        default=None,
+        type=str,
+    )
+    parser.add_argument(
+        "--add_fish_plugins",
+        help="Additional fish plugins to install",
+        nargs="+",
+        required=False,
+        default=None,
+        type=str,
+    )
+    parser.add_argument(
+        "-f",
+        "--force",
+        help="Overwite existing files if they exist.",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "--dry_run",
+        help="List the changes that will be made and the packages that will be installed.",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "-v", "--verbose", help="Verbose output.", action="store_true", default=False
+    )
     args = parser.parse_args()
 
     if args.verbose:
@@ -205,21 +226,21 @@ def main():
 
     if not os.path.isfile(args.config_file):
         log.error(f"Config file {args.config_file} not found")
-        sys.exit(1);
+        sys.exit(1)
 
     config_data = None
-    with open(args.config_file, 'r') as file :
+    with open(args.config_file) as file:
         config_data = yaml.safe_load(file)
 
     homebrew = Homebrew()
-    if 'homebrew_packages' in config_data:
-        homebrew.add_packages(config_data['homebrew_packages'])
+    if "homebrew_packages" in config_data:
+        homebrew.add_packages(config_data["homebrew_packages"])
     if args.add_homebrew_packages is not None:
         homebrew.add_packages(args.add_homebrew_packages)
 
     fisher = Fisher()
-    if 'fish_plugins' in config_data:
-        fisher.add_plugins(config_data['fish_plugins'])
+    if "fish_plugins" in config_data:
+        fisher.add_plugins(config_data["fish_plugins"])
     if args.add_fish_plugins is not None:
         fisher.add_plugins(args.add_fish_plugins)
 
@@ -233,9 +254,9 @@ def main():
 
     initialize_submodules()
     homebrew.install_packages()
-    softlink_to_homedir('homedir_files', args.force)
+    softlink_to_homedir("homedir_files", args.force)
     fisher.install_plugins()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
 fishd.tmp.*
 homedir_files/config/fish/completions/
 homedir_files/config/fish/corporate.config.fish
