@@ -1,3 +1,7 @@
+" SPDX-FileCopyrightText: 2023 Jerin Joy
+"
+" SPDX-License-Identifier: Apache-2.0
+
 "My Settings File - Jerin
 syntax enable
 set ai
@@ -174,4 +178,3 @@ colorscheme tokyonight
 let g:tokyonight_transparent_background = 1
 
 let g:airline_theme = "tokyonight"
-

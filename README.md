@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 Jerin Joy
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # dotfiles
 
 Installs my dev environment.
