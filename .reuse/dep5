@@ -3,6 +3,6 @@ Upstream-Name: reuse
 Source: https://github.com/fsfe/reuse-tool
 
 
-Files: homedir_files/vim/autoload/plug.vim docs/terminal.jpg
+Files: homedir_files/vim/autoload/plug.vim docs/terminal.jpg homedir_files/config/nvim/*
 Copyright: 2023 by Jerin Joy
 License: Apache-2.0
