@@ -34,6 +34,8 @@ Configure the tide prompt:
 tide configure
 ```
 
+The Fish [configuration file](homedir_files/config/fish/config.fish) looks for a `~/.config/fish/corporate.config.fish` file and sources it if it's available. This file can contain configuration that shouldn't be part of this repo.
+
 ### Dry Run
 
 See what changes will be made to your system before running the script.
