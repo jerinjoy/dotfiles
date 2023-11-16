@@ -47,3 +47,12 @@ Install the `pyyaml` package. The setup script uses it to parse the `config.yaml
 ```
 pip3 install pyyaml
 ```
+
+## Misc
+
+For issues with LazyVim (NeoVim) clear out these directories.
+
+```
+rm -r ~/.local/state/nvim/
+rm -r ~/.local/share/nvim/
+````
