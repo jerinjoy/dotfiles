@@ -49,4 +49,3 @@ local on_tab = vim.schedule_wrap(function(fallback)
   end
 end)
 lvim.builtin.cmp.mapping["<Tab>"] = on_tab
-
