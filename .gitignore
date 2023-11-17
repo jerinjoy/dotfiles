@@ -10,6 +10,7 @@ homedir_files/config/fish/fish_variables
 homedir_files/config/fish/functions/
 homedir_files/config/fish/themes/
 homedir_files/config/github-copilot/
+homedir_files/config/iterm2/
 homedir_files/config/lazygit/
 homedir_files/config/menus/
 homedir_files/config/nvim/
