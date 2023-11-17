@@ -25,6 +25,7 @@ abbr -a gpush "git push --force-with-lease"
 abbr -a gpull "git pull --rebase"
 abbr -a gstatus "git status"
 abbr -a gsubls "git submodule status --recursive"
+abbr -a gshalist "git diff-tree --no-commit-id --name-only -r "
 
 abbr -a h "history | ag"
 abbr -a c clear
