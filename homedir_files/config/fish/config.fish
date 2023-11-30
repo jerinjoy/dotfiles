@@ -20,6 +20,10 @@ end
 
 # Abbreviations
 
+# These will be overriden if exa is avaialable
+abbr -a ltr "ls -ltr"
+abbr -a ltra "ls -ltra"
+
 abbr -a gco "git checkout"
 abbr -a gpush "git push --force-with-lease"
 abbr -a gpull "git pull --rebase"
