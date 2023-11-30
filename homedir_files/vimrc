@@ -161,20 +161,4 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
 
-" Add all the plugins here:
-
-Plug 'sheerun/vim-polyglot'
-Plug 'ghifarit53/tokyonight-vim'
-
-call plug#end()
-
-
-set termguicolors
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
-let g:tokyonight_transparent_background = 1
-
-let g:airline_theme = "tokyonight"
