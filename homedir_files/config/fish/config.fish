@@ -6,7 +6,6 @@ set -x EDITOR nvim
 
 # These aliases depend on the binaries being available.
 function add_abbr_requiring_binaries
-    abbr -a vim nvim
     abbr -a ls exa
     abbr -a ltr exa -lh --git --sort=newest
     abbr -a ltra exa -lh --git --sort=newest -a
