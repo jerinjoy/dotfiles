@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-set -x EDITOR nvim
+set -x EDITOR vim
 
 # These aliases depend on the binaries being available.
 function add_abbr_requiring_binaries
