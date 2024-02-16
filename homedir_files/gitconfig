@@ -2,12 +2,13 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+[include]
+    path = ~/email.gitconfig
+
 [user]
-	email = github@jerin.me
 	name = Jerin Joy
 
 [alias]
-
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
     # list of the the recent 10 branches that I've worked on
@@ -54,7 +55,7 @@
     colorMoved = default
 
 [commit]
-	template = $HOME/.stCommitMsg
+	template = ~/.stCommitMsg
 [color]
 	ui = auto
 
