@@ -2,6 +2,9 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+# References:
+# https://jvns.ca/blog/2024/02/16/popular-git-config-options/#rerere-enabled-true
+
 [include]
     path = ~/email.gitconfig
 
@@ -17,10 +20,12 @@
     # everything I've checked in since last night
     today = log --since=00:00:00 --all --no-merges --oneline --author=github@jerin.me
 
+    fcommit = commit --no-verify
+
 [core]
-  excludesfile = ~/.gitignore_global
-  pager = delta
-	editor = vim
+    excludesfile = ~/.gitignore_global
+    pager = delta
+    editor = vim
 
 [interactive]
     diffFilter = delta --color-only
@@ -53,25 +58,48 @@
 
 [diff]
     colorMoved = default
+	submodule = log
 
 [commit]
 	template = ~/.stCommitMsg
 [color]
 	ui = auto
 
-[alias]
-        fcommit = commit --no-verify
+[rebase]
+    autosquash = true
 
-# We're using the git info from the starship prompt so disable the one from ZSH
-# to speed things up.
-[oh-my-zsh]
-  hide-status = 1
-  hide-dirty = 1
-  hide-info = 1
 [push]
+    # https://jvns.ca/blog/2024/02/16/popular-git-config-options/#push-default-simple-push-default-current
 	autoSetupRemote = true
+
+[rerere]
+    # This enables rerere (”reuse recovered resolution”), which remembers
+    # how you resolved merge conflicts during a git rebase and automatically
+    # resolves conflicts for you when it can.
+    enabled = true
+
+[help]
+    # If you want it to run the autocorrect suggestion automatically,
+    # you can set help.autocorrect to 1 (run after 0.1 seconds),
+    # 10 (run after 1 second), immediate (run immediately),
+    # or prompt (run after prompting)
+    autocorrect = 10
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+	prune = true
+[receive]
+	fsckObjects = true
+[status]
+	submoduleSummary = true
+[submodule]
+	recurse = true
+[branch]
+	sort = -committerdate
