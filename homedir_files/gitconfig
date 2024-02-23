@@ -17,9 +17,6 @@
     # list of the the recent 10 branches that I've worked on
     recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 
-    # everything I've checked in since last night
-    today = log --since=00:00:00 --all --no-merges --oneline --author=github@jerin.me
-
     fcommit = commit --no-verify
 
 [core]
