@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config: homedir_files/config
+    ~/.gitconfig: homedir_files/gitconfig
+    ~/.gitignore_global: homedir_files/gitignore_global
+    ~/.tmux: homedir_files/tmux
+    ~/.tmux.conf: homedir_files/tmux.conf
+    ~/.vim: homedir_files/vim
+    ~/.vimrc: homedir_files/vimrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
+- shell:
+    - command: fish -C "curl -sL https://git.io/fisher | source && fisher update && exit"
+      description: Installing fisher and the fish plugins listed in ~/.config/fish/fish_plugins.
+      stdout: true
+      stdin: true
+      stderr: true
