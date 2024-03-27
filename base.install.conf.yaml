@@ -6,7 +6,9 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean:
+    ~/:
+      force: true
 
 - link:
     ~/.config: homedir_files/config
