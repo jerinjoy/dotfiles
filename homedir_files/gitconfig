@@ -6,10 +6,9 @@
 # https://jvns.ca/blog/2024/02/16/popular-git-config-options/#rerere-enabled-true
 
 [include]
-    path = ~/email.gitconfig
-
-[user]
-	name = Jerin Joy
+    # Place user-specific configuration (name, email) in ~/.user.gitconfig
+    # This file is not tracked by git, so it won't be shared with others
+    path = ~/user.gitconfig
 
 [alias]
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'

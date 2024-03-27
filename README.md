@@ -36,6 +36,26 @@ Place configuration that shouldn't be part of this repo in a `~/local.config.fis
 
 The Fish [configuration file](homedir_files/config/fish/config.fish) looks for this file and sources it if it's available.
 
+### Create a `~/user.gitconfig` file
+
+Place user-specific configuration (name, email) in `~/user.gitconfig`.
+
+Example:
+
+```bash
+❯ bat --style=plain,header  ~/user.gitconfig
+File: /Users/joy/user.gitconfig
+# This is not checked into dotfiles and is local to this machine.
+
+[user]
+    name = J Joy
+    email = j@joy.com
+
+[alias]
+  # everything I've checked in since last night
+  today = log --since=00:00:00 --all --no-merges --oneline --author=j@joy.com
+```
+
 ## Tools Installed
 
 ### fish
