@@ -50,18 +50,7 @@ switch (uname)
 
         # These are only installed by default on macOS using Homebrew
         add_abbr_requiring_binaries
-end
 
-if test -d $HOME/.local/bin
-    fish_add_path -pmP $HOME/.local/bin
-end
-
-if test -d $HOME/.local/bin/lvim
-    fish_add_path -aP $HOME/.local/bin/
-end
-
-if test -d $HOME/bin
-    fish_add_path -aP $HOME/bin
 end
 
 # Tide Colors
