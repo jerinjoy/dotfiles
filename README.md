@@ -30,9 +30,9 @@ fish_config theme choose "TokyoNight Storm"
 tide configure
 ```
 
-### Create a `~/corporate.config.fish` file
+### Create a `~/local.config.fish` file
 
-Place configuration that shouldn't be part of this repo in a `~/corporate.config.fish` file.
+Place configuration that shouldn't be part of this repo in a `~/local.config.fish` file.
 
 The Fish [configuration file](homedir_files/config/fish/config.fish) looks for this file and sources it if it's available.
 
