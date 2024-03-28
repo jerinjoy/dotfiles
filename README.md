@@ -82,11 +82,24 @@ I use [Homebrew](https://brew.sh) to install packages on macOS. The [`Brewfile`]
 
 **NOTE: Homebrew will only be installed on macOS.**
 
-## Misc
+## Troubleshooting
 
-For issues with LazyVim (NeoVim) clear out these directories.
+### Install complains that it can't find the dotbot executable
 
+```shell
+❯ ./install
+./install:27: no such file or directory: /home/joy/dotfiles/dotbot/bin/Dotbot
+````
+
+Run:
+
+```shell
+git submodule deinit -f . && git submodule update --init --recursive
 ```
+
+### For issues with LazyVim (NeoVim) clear out these directories.
+
+```shell
 rm -r ~/.local/state/nvim/
 rm -r ~/.local/share/nvim/
 ````
