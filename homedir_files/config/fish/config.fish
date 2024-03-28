@@ -6,9 +6,9 @@ set -x EDITOR vim
 
 # These aliases depend on the binaries being available.
 function add_abbr_requiring_binaries
-    abbr -a ls exa
-    abbr -a ltr exa -lh --git --sort=newest
-    abbr -a ltra exa -lh --git --sort=newest -a
+    abbr -a ls lsd
+    abbr -a ltr lsd -ltr
+    abbr -a ltra lsd -ltra
 
     abbr -a cat "bat "
     abbr -a kit "bat --style=plain,header "
