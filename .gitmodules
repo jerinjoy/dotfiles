@@ -14,3 +14,7 @@
 [submodule "homedir_files/tmux/plugins/tmux-theme"]
 	path = homedir_files/tmux/plugins/tmux-theme
 	url = git@github.com:jerinjoy/tmux-theme.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty

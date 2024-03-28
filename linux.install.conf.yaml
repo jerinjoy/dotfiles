@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
+- shell:
+    - command: sudo chsh -s $(which fish)
+      description: Making fish the default shell. You will have to create a new terminal for this to take effect.
+      stdout: true
+      stdin: true
+      stderr: true
+
+- shell:
+    - command: xargs sudo apt-get -y install < Aptfile
+      description: Installing packages with apt
+      stdout: true
+      stdin: true
+      stderr: true

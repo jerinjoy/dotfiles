@@ -6,47 +6,81 @@ SPDX-License-Identifier: Apache-2.0
 
 # dotfiles
 
-Installs my dev environment.
-
-I use [`fish`](https://fishshell.com) as my default shell, [Neovim](https://neovim.io) as my editor in the terminal, and [`tmux`](https://github.com/tmux/tmux/wiki) as my terminal multiplexer.
+Installs my dev environment using [Dotbot](https://github.com/anishathalye/dotbot)
 
 ![terminal](docs/terminal.jpg)
-
-See [`config.yaml`](config.yaml) to for the packages that will be installed.
 
 ## Installation
 
 ```
-./setup_env.py
+./install
 ```
 
-**Add `-f` to force**
+## Post Installation Configuration
 
-Set up the "TokyoNight Storm" fish theme:
+### Set up the [TokyoNight Storm](https://github.com/folke/tokyonight.nvim) theme in `fish`:
 
 ```
 fish_config theme choose "TokyoNight Storm"
 ```
 
-Configure the tide prompt:
+### Configure the tide prompt:
 
 ```
 tide configure
 ```
 
-The Fish [configuration file](homedir_files/config/fish/config.fish) looks for a `~/.config/fish/corporate.config.fish` file and sources it if it's available. This file can contain configuration that shouldn't be part of this repo.
+### Create a `~/local.config.fish` file
 
-### Dry Run
+Place configuration that shouldn't be part of this repo in a `~/local.config.fish` file.
 
-See what changes will be made to your system before running the script.
+The Fish [configuration file](homedir_files/config/fish/config.fish) looks for this file and sources it if it's available.
 
-## Dependencies
+### Create a `~/user.gitconfig` file
 
-Install the `pyyaml` package. The setup script uses it to parse the `config.yaml` file.
+Place user-specific configuration (name, email) in `~/user.gitconfig`.
 
+Example:
+
+```bash
+❯ bat --style=plain,header  ~/user.gitconfig
+File: /Users/joy/user.gitconfig
+# This is not checked into dotfiles and is local to this machine.
+
+[user]
+    name = J Joy
+    email = j@joy.com
+
+[alias]
+  # everything I've checked in since last night
+  today = log --since=00:00:00 --all --no-merges --oneline --author=j@joy.com
 ```
-pip3 install pyyaml
-```
+
+## Tools Installed
+
+### fish
+
+I use [`fish`](https://fishshell.com) as my default shell and [`fisher`](https://github.com/jorgebucaran/fisher) to manage my fish plugins.
+
+The plugins listed in [`fish_plugins`](homedir_files/config/fish/fish_plugins) are installed by fisher.
+
+### neovim
+
+I use [Neovim](https://neovim.io) as my editor in the terminal with the [LazyVim](https://www.lazyvim.org/).
+
+I use VSCode as my primary editor.
+
+### tmux
+
+I use [`tmux`](https://github.com/tmux/tmux/wiki) as my terminal multiplexer.
+
+The plugins in [`~/.tmux/plugins/`](homedir_files/tmux/plugins/) are installed.
+
+### Homebrew
+
+I use [Homebrew](https://brew.sh) to install packages on macOS. The [`Brewfile`](Brewfile) lists the packages that are installed.
+
+**NOTE: Homebrew will only be installed on macOS.**
 
 ## Misc
 

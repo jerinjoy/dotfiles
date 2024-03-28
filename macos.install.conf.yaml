@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
+- shell:
+    - command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      description: Installing Homebrew
+      stdout: true
+      stdin: true
+      stderr: true
+
+- shell:
+    - command: brew bundle install Brewfile
+      description: Installing Homebrew packages
+      stdout: true
+      stdin: true
+      stderr: true
+
+- shell:
+    - command: chsh -s $(which fish) -u $(whoami)
+      description: Making fish the default shell. You will have to create a new terminal for this to take effect.
+      stdout: true
+      stdin: true
+      stderr: true

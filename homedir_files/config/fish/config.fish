@@ -68,9 +68,9 @@ set -x tide_time_color 6272a4
 # https://draculatheme.com/fzf
 set -x FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
-# Place all the corporate configs here. This file is in .gitignore.
-if test -e $HOME/corporate.config.fish
-    source $HOME/corporate.config.fish
+# Place all the local configs here. This file isn't checked into the repo.
+if test -e $HOME/local.config.fish
+    source $HOME/local.config.fish
 end
 
 
