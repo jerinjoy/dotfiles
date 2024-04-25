@@ -8,13 +8,13 @@
 [submodule "homedir_files/tmux/plugins/tpm"]
 	path = homedir_files/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule "homedir_files/config/nvim"]
-	path = homedir_files/config/kickstart.nvim
-	url = git@github.com:jerinjoy/kickstart.nvim.git
-[submodule "homedir_files/tmux/plugins/tmux-theme"]
-	path = homedir_files/tmux/plugins/tmux-theme
-	url = git@github.com:jerinjoy/tmux-theme.git
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "homedir_files/config/kickstart.nvim"]
+	path = homedir_files/config/kickstart.nvim
+	url = https://github.com/jerinjoy/kickstart.nvim.git
+[submodule "homedir_files/tmux/plugins/tmux-theme"]
+	path = homedir_files/tmux/plugins/tmux-theme
+	url = https://github.com/jerinjoy/tmux-theme.git
