@@ -53,6 +53,10 @@ switch (uname)
 
 end
 
+if test -d $HOME/bin
+    fish_add_path -pmP $HOME/bin/
+end
+
 # Tide Colors
 set -x tide_git_branch_color f1fa8c # yellow
 set -x tide_git_operation_color ff79c6 # purple
