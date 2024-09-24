@@ -5,9 +5,11 @@
 fishd.tmp.*
 homedir_files/config/fish/completions/
 homedir_files/config/fish/fish_variables
+homedir_files/config/fish/fishd.*
 homedir_files/config/fish/functions/
 homedir_files/config/fish/themes/
 homedir_files/config/github-copilot/
+homedir_files/config/go/
 homedir_files/config/iterm2/
 homedir_files/config/lazygit/
 homedir_files/config/menus/
@@ -16,6 +18,5 @@ homedir_files/config/pulse/
 homedir_files/config/qBit*
 homedir_files/config/zsh-abbr/
 homedir_files/vim/plugged
-homedir_files/config/fish/fishd.*
 
 Brewfile.lock.json
