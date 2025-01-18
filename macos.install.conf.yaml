@@ -10,7 +10,7 @@
       stderr: true
 
 - shell:
-    - command: brew bundle install Brewfile
+    - command: brew bundle --file Brewfile
       description: Installing Homebrew packages
       stdout: true
       stdin: true
