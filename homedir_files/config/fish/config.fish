@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+umask 002
+
 set -x EDITOR vim
 
 # These aliases depend on the binaries being available.
@@ -45,7 +47,7 @@ switch (uname)
         end
 
         if test -d $HOME/.cargo/bin/
-            fish_add_path -pmP $HOME/.cargo/bin/
+           fish_add_path -pmP $HOME/.cargo/bin/
         end
 
         # These are only installed by default on macOS using Homebrew
