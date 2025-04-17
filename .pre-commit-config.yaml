@@ -4,7 +4,7 @@
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
-    rev: v4.4.0
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
@@ -24,12 +24,12 @@ repos:
         args: [--markdown-linebreak-ext=md]
 
   - repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
+    rev: 6.0.1
     hooks:
       - id: isort
 
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 23.9.1
+    rev: 25.1.0
     hooks:
       - id: black
 
@@ -39,17 +39,17 @@ repos:
       - id: flynt
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.10.1
+    rev: v3.19.1
     hooks:
       - id: pyupgrade
 
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v16.0.6
+    rev: v20.1.0
     hooks:
       - id: clang-format
 
   - repo: https://github.com/fsfe/reuse-tool
-    rev: v2.1.0
+    rev: v5.0.2
     hooks:
       - id: reuse
         args:
@@ -61,6 +61,6 @@ repos:
       - id: reuse
 
   - repo: https://github.com/pycqa/flake8
-    rev: 6.1.0
+    rev: 7.2.0
     hooks:
       - id: flake8
