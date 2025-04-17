@@ -22,10 +22,11 @@
     # It will only add the files that have changed with the pre-commit hooks.
     scommit = "!f() { \
         STAGED_FILES=$(git diff --cached --name-only); \
-        [ -z \"$STAGED_FILES\" ] && echo 'No staged files to commit.' && exit 1; \
+        if [ -z \"$STAGED_FILES\" ]; then echo 'No staged files to commit.'; exit 1; fi; \
+        echo \"Running pre-commit on: $STAGED_FILES\"; \
         pre-commit run --files $STAGED_FILES || true; \
         for file in $STAGED_FILES; do \
-        [ -f \"$file\" ] && git add \"$file\"; \
+        if [ -f \"$file\" ]; then git add \"$file\"; fi; \
         done; \
         git commit \"$@\"; \
     }; f"
