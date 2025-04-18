@@ -20,7 +20,7 @@
 
     # Runs pre-commit hooks and adds the modified files before committing.
     # It will only add the files that have changed with the pre-commit hooks.
-    scommit = "!f() { \
+    smart-commit = "!f() { \
         STAGED_FILES=$(git diff --cached --name-only); \
         if [ -z \"$STAGED_FILES\" ]; then echo 'No staged files to commit.'; exit 1; fi; \
         echo \"Running pre-commit on: $STAGED_FILES\"; \
@@ -32,9 +32,7 @@
     }; f"
 
     amend = commit --amend
-    unstage = reset HEAD --
     fixup = commit --fixup
-    squash = "!f() { git reset --soft HEAD~${1:-1} && git commit --edit -m \"squash\"; }; f"
 
 [core]
     excludesfile = ~/.gitignore_global

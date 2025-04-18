@@ -25,6 +25,9 @@ end
 abbr -a ltr "ls -ltr"
 abbr -a ltra "ls -ltra"
 
+abbr -a gac "git add -u && git smart-commit -s -m"
+abbr -a gc "git smart-commit -s -m"
+abbr -a gamend "git commit -s --amend"
 abbr -a gco "git checkout"
 abbr -a gpush "git push --force-with-lease"
 abbr -a gpull "git pull --rebase"
