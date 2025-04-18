@@ -31,6 +31,11 @@
         git commit \"$@\"; \
     }; f"
 
+    amend = commit --amend
+    unstage = reset HEAD --
+    fixup = commit --fixup
+    squash = "!f() { git reset --soft HEAD~${1:-1} && git commit --edit -m \"squash\"; }; f"
+
 [core]
     excludesfile = ~/.gitignore_global
     pager = delta
@@ -63,7 +68,7 @@
     line-numbers-zero-style       = "#3b4261"
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [diff]
     colorMoved = default
@@ -80,6 +85,7 @@
 [push]
     # https://jvns.ca/blog/2024/02/16/popular-git-config-options/#push-default-simple-push-default-current
 	autoSetupRemote = true
+    default = current
 
 [rerere]
     # This enables rerere (”reuse recovered resolution”), which remembers
