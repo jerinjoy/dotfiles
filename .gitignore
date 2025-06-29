@@ -1,7 +1,8 @@
-
-#
 # SPDX-FileCopyrightText: 2023 Jerin Joy
+#
 # SPDX-License-Identifier: Apache-2.0
+
+Brewfile.lock.json
 fishd.tmp.*
 homedir_files/config/fish/completions/
 homedir_files/config/fish/fish_variables
@@ -16,8 +17,8 @@ homedir_files/config/menus/
 homedir_files/config/nvim/
 homedir_files/config/pulse/
 homedir_files/config/qBit*
+homedir_files/config/zed/prompts/converstations
+homedir_files/config/zed/prompts/prompts:0
 homedir_files/config/zsh-abbr/
 homedir_files/vim/.netrwhist
 homedir_files/vim/plugged
-
-Brewfile.lock.json
