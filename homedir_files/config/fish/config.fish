@@ -49,10 +49,6 @@ switch (uname)
             fish_add_path -pmP /opt/homebrew/opt/ccache/libexec
         end
 
-        if test -d $HOME/.cargo/bin/
-           fish_add_path -pmP $HOME/.cargo/bin/
-        end
-
         # These are only installed by default on macOS using Homebrew
         add_abbr_requiring_binaries
 
