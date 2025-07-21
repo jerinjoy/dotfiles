@@ -24,7 +24,7 @@ case "$(uname)" in
         ;;
     Linux)
         OSNAME="linux"
-        "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${OSNAME}${SUFFIX}" --plugin-dir "{BASEDIR}/dotbot-apt" "${@}"
+        "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${OSNAME}${SUFFIX}" "${@}"
         ;;
     *)
         echo "Unsupported OS"
