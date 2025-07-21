@@ -10,8 +10,8 @@
       stderr: true
 
 - shell:
-    - command: fish -c 'ipa user-mod (whoami) --shell=(which fish)'
-      description: Making fish the default shell. You will have to create a new terminal for this to take effect.
+    - command: fish -c 'ipa user-mod (whoami) --shell=(which fish) || true'
+      description: Set fish as default shell (ignore if already set)
       stdout: true
       stdin: true
       stderr: true
