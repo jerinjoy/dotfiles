@@ -9,6 +9,13 @@ set -g status-right-length 100
 set -g status-interval 5
 set -g window-status-separator ""
 
+# style (uses your palette)
+set -g @prefix_highlight_prefix_prompt '⌃A'
+set -g @prefix_highlight_fg '#{@dark}'
+set -g @prefix_highlight_bg '#{@c2}'      # amber pops on your dark bar
+set -g @prefix_highlight_show_copy_mode 'on'
+set -g @prefix_highlight_copy_mode_attr 'fg=#{@dark},bg=#{@c1},bold'
+
 ##### LEFT — session name pill → band #####
 set -g status-left '#[fg=#{@session_bg},bg=#{@bar_bg}]#[fg=#{@dark},bg=#{@session_bg},bold] #S #[fg=#{@session_bg},bg=#{@band_bg}]'
 
@@ -22,8 +29,7 @@ setw -g window-status-format "#[bg=#{@band_bg},fg=#{?#{==:#I,1},#{@c1},#{?#{==:#
 setw -g window-status-current-format '#[fg=#{@active_bg},bg=#{@band_bg}]#[fg=#{@dark},bg=#{@active_bg},bold] #I #W* #[fg=#{@active_bg},bg=#{@band_bg}]'
 
 ##### RIGHT — time pill (arrow on left) #####
-set -g @time_fmt "+%a %m/%d %H:%M"
-set -g status-right '#[fg=#{@session_bg},bg=#{@bar_bg}]#[fg=#{@dark},bg=#{@session_bg},bold] %a %m/%d %H:%M #[fg=#{@session_bg},bg=#{@band_bg}]'
+set -g status-right '#{prefix_highlight} #[fg=#{@session_bg},bg=#{@bar_bg}]#[fg=#{@dark},bg=#{@session_bg},bold] %a %m/%d %H:%M #[fg=#{@session_bg},bg=#{@band_bg}]'
 
 ##### Panes / messages #####
 set -g pane-border-style "fg=#{@pane_border}"
