@@ -15,6 +15,3 @@
 [submodule "homedir_files/config/kickstart.nvim"]
 	path = homedir_files/config/kickstart.nvim
 	url = https://github.com/jerinjoy/kickstart.nvim.git
-[submodule "homedir_files/tmux/plugins/tmux-tokyo-night"]
-	path = homedir_files/tmux/plugins/tmux-tokyo-night
-	url = https://github.com/fabioluciano/tmux-tokyo-night.git
