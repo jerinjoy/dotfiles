@@ -18,3 +18,6 @@
 [submodule "homedir_files/tmux/plugins/tmux-theme"]
 	path = homedir_files/tmux/plugins/tmux-theme
 	url = https://github.com/jerinjoy/tmux-theme.git
+[submodule "homedir_files/tmux/plugins/tmux-tokyo-night"]
+	path = homedir_files/tmux/plugins/tmux-tokyo-night
+	url = https://github.com/fabioluciano/tmux-tokyo-night.git
