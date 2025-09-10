@@ -1,0 +1,31 @@
+theme "tokyo-night-storm"
+
+// pane_frames false
+
+keybinds {
+  shared_except "locked" {
+    // New tab
+    bind "Alt t" { NewTab; SwitchToMode "Normal"; }
+
+    // New panes
+    bind "Alt -" { NewPane "Down"; }   // horizontal split
+    bind "Alt n" { NewPane "Right"; }  // vertical split
+  }
+}
+
+// plugins {
+//    compact-bar location="zellij:compact-bar" {
+//        tooltip "F1"
+//    }
+//}
+default_layout "compact"
+
+// Kill the session on the last pane/tab closing
+on_force_close "quit"
+
+tab_format {
+    // Defines the format for the currently active tab
+    active " [{index}] {name} "
+    // Defines the format for all other inactive tabs
+    inactive " {index}: {name} "
+}
