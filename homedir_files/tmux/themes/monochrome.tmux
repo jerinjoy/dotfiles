@@ -6,13 +6,12 @@ set -g @text             "#e6e6e6"   # Soft white
 set -g @muted            "#a7a7a7"   # Muted gray
 set -g @dark             "#0b0b0d"   # Near-black
 
-# Grayscale accents
-set -g @c1 "#f5f5f5"
-set -g @c2 "#d9d9d9"
-set -g @c3 "#b3b3b3"
-set -g @c4 "#8c8c8c"
-set -g @c5 "#6e6e6e"
-set -g @c6 "#4a4a4a"
+# Accents for the tab numbers (to pop)
+set -g @c1 "#1e66f5"   # Blue (rich, vivid)
+set -g @c2 "#df8e1d"   # Yellow (amber/golden)
+set -g @c3 "#40a02b"   # Green (emerald, clearer than pale latte green)
+set -g @c4 "#d20f39"   # Red (crisp, not muted)
+set -g @c5 "#fe640b"   # Orange (bold)
 
 # Pills
 set -g @session_bg   "#b3b3b3"   # Mid gray session pill
