@@ -1,3 +1,8 @@
+
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 ##### Shared tmux theme template (uses palette vars) #####
 
 # Bar basics
@@ -29,7 +34,7 @@ setw -g window-status-format "#[bg=#{@band_bg},fg=#{?#{==:#I,1},#{@c1},#{?#{==:#
 setw -g window-status-current-format '#[fg=#{@active_bg},bg=#{@band_bg}]#[fg=#{@dark},bg=#{@active_bg},bold] #I #W* #[fg=#{@active_bg},bg=#{@band_bg}]'
 
 ##### RIGHT — time pill (arrow on left) #####
-set -g status-right '#{prefix_highlight} #[fg=#{@session_bg},bg=#{@bar_bg}]#[fg=#{@dark},bg=#{@session_bg},bold] %a %m/%d %H:%M #[fg=#{@session_bg},bg=#{@band_bg}]'
+set -g status-right '#{prefix_highlight} #[fg=#{@time_bg},bg=#{@bar_bg}]#[fg=#{@dark},bg=#{@time_bg},bold] %a %m/%d %H:%M #[fg=#{@time_bg},bg=#{@bar_bg}]'
 
 ##### Panes / messages #####
 set -g pane-border-style "fg=#{@pane_border}"

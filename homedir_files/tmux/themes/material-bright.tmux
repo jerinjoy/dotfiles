@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # --- Material Design (bright on dark) ---
-# Dark surfaces (Material Dark)
 set -g @bar_bg           "#121212"   # Bar background (MD dark base)
 set -g @band_bg          "#1e1e1e"   # Band/divider (slightly lighter than bar)
 set -g @text             "#e0e0e0"   # Primary text on dark
@@ -14,10 +17,9 @@ set -g @c4 "#ff7043"     # Deep Orange 400
 set -g @c5 "#ab47bc"     # Purple 400
 
 # Pills
-set -g @session_bg       "#4caf50"   # Green 500 (session pill)
-set -g @active_bg        "#ffc107"   # Amber 500 (active tab)
-set -g @time_bg          "#3f51b5"   # Indigo 500 (clock)
-set -g @time_fg          "#ffffff"   # White on indigo for contrast
+set -g @session_bg       "#90CAF9"   # Green 500 (session pill)
+set -g @active_bg        "#FB8C00"   # Amber 500 (active tab)
+set -g @time_bg          "#90CAF9"
 
 # Borders / messages
 set -g @pane_border         "#424242"   # Neutral border

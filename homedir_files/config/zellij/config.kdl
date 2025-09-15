@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jerin Joy
+//
+// SPDX-License-Identifier: Apache-2.0
+
 theme "tokyo-night-storm"
 
 // pane_frames false

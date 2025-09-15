@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # --- Monochrome (dark, filled pills unified) ---
-# Base
 set -g @bar_bg           "#1e1e2e"   # Dark base
 set -g @band_bg          "#1e1e2e"   # Match bar so it blends in
 set -g @text             "#e6e6e6"   # Soft white
@@ -15,11 +18,8 @@ set -g @c5 "#fe640b"   # Orange (bold)
 
 # Pills
 set -g @session_bg   "#b3b3b3"   # Mid gray session pill
-set -g @battery_bg   "#6e6e6e"   # Dark gray battery pill
-set -g @time_bg "#{@session_bg}"
-
-# Active tab standout
 set -g @active_bg    "#f5f5f5"   # Bright fill for active tab
+set -g @time_bg      "#b3b3b3"
 
 # Borders/messages
 set -g @pane_border        "#3b3b4a"
