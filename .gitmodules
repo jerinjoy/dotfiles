@@ -15,3 +15,9 @@
 [submodule "homedir_files/config/kickstart.nvim"]
 	path = homedir_files/config/kickstart.nvim
 	url = https://github.com/jerinjoy/kickstart.nvim.git
+[submodule "homedir_files/tmux/plugins/tmux-yank"]
+	path = homedir_files/tmux/plugins/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank.git
+[submodule "homedir_files/tmux/plugins/tmux-prefix-highlight"]
+	path = homedir_files/tmux/plugins/tmux-prefix-highlight
+	url = https://github.com/tmux-plugins/tmux-prefix-highlight.git

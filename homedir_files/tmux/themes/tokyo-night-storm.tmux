@@ -1,3 +1,8 @@
+
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # --- Tokyo Night Storm palette vars ---
 set -g @bar_bg           "#24283b"
 set -g @band_bg          "#1f2335"
@@ -16,7 +21,6 @@ set -g @c5 "#bb9af7"   # pink
 set -g @session_bg      "#9ece6a"  # green left pill
 set -g @active_bg       "#e0af68"  # yellow active tab
 set -g @time_bg         "#9ece6a"  # green time pill
-set -g @time_fg         "#1a1b26"
 
 # borders / messages
 set -g @pane_border        "#565f89"

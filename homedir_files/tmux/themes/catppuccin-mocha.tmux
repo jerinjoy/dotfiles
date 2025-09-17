@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # --- Catppuccin Mocha tuned vars ---
 set -g @bar_bg           "#11111b"   # Mantle
 set -g @band_bg          "#1e1e2e"   # Base
@@ -16,7 +20,6 @@ set -g @c5 "#fab387"   # Peach
 set -g @session_bg      "#89dceb"   # Sky blue (session pill)
 set -g @active_bg       "#facc15"   # Bright yellow (active tab)
 set -g @time_bg         "#74c7ec"   # Sapphire (time pill)
-set -g @time_fg         "#11111b"   # Dark fg for contrast
 
 # borders / messages
 set -g @pane_border        "#45475a"   # Overlay0
