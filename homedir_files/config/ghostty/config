@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2023 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+
+theme = tokyonight
+font-size = 16
+font-family = FiraCode Nerd Font Mono
+
+# Connect to my VM:
+# Prefer SSH
+keybind = ctrl+cmd+2=text:ssh -t joy.ba.rivosinc.com 'tmux attach -t "$(hostname -s)RivosVM" || tmux new -s "$(hostname -s)RivosVM"'
+# Use mosh if the connection is poor (tmux-yank) will not work.
+keybind = ctrl+cmd+3=text:mosh joy.ba.rivosinc.com -- bash -c '/usr/bin/env tmux a -t $(hostname -s)RivosVM || /usr/bin/env tmux new -s $(hostname -s)RivosVM'\n
+
+
+# Disable ligatures
+font-feature = -calt, -liga, -dlig
+
+# Copying & clipboard
+copy-on-select = true
+clipboard-read = allow
+clipboard-write = allow
+
+# Cursor style is already controlled separately, so drop "no-cursor"
+# cursor-style = bar
+
+macos-titlebar-style = tabs
