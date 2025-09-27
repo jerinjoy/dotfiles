@@ -59,15 +59,15 @@ if test -d $HOME/bin
 end
 
 # Tide Colors
-set -x tide_git_branch_color f1fa8c # yellow
-set -x tide_git_operation_color ff79c6 # purple
-set -x tide_git_stash_color 8be9fd # cyan
-set -x tide_git_conflicted_color ff5555 # red
-set -x tide_git_staged_color ff79c6 # pink
-set -x tide_git_dirty_color ffb86c # orange
-set -x tide_git_untracked_color 50fa7b # green
+set -x tide_git_color_branch f1fa8c # yellow
+set -x tide_git_color_operation ff79c6 # purple
+set -x tide_git_color_stash 8be9fd # cyan
+set -x tide_git_color_conflicted ff5555 # red
+set -x tide_git_color_staged ff79c6 # pink
+set -x tide_git_color_dirty ffb86c # orange
+set -x tide_git_color_untracked 50fa7b # green
 
-set -x tide_time_color 6272a4
+set -x tide_color_time 6272a4
 
 # Set FZF Dracula theme
 # https://draculatheme.com/fzf
