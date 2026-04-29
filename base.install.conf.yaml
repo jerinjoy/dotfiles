@@ -5,6 +5,7 @@
 - defaults:
     link:
       relink: true
+      force: true
 
 - clean:
     ~/:
@@ -23,8 +24,7 @@
     - [git submodule update --init --recursive, Installing submodules]
 
 - shell:
-    - command: fish -C "curl -sL https://git.io/fisher | source && fisher update && exit"
+    - command: fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update"
       description: Installing fisher and the fish plugins listed in ~/.config/fish/fish_plugins.
       stdout: true
-      stdin: true
       stderr: true

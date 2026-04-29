@@ -3,22 +3,20 @@
 # SPDX-License-Identifier: Apache-2.0
 
 - shell:
-    - command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      description: Installing Homebrew
+    - command: command -v brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      description: Installing Homebrew (skipped if already installed)
       stdout: true
-      stdin: true
       stderr: true
 
 - shell:
     - command: brew bundle --file Brewfile
       description: Installing Homebrew packages
       stdout: true
-      stdin: true
       stderr: true
 
 - shell:
-    - command: chsh -s $(which fish) -u $(whoami)
-      description: Making fish the default shell. You will have to create a new terminal for this to take effect.
+    - command: '[ "$SHELL" = "$(which fish)" ] || chsh -s $(which fish) -u $(whoami)'
+      description: Making fish the default shell (skipped if already set).
       stdout: true
       stdin: true
       stderr: true
