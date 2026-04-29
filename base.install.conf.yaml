@@ -17,7 +17,6 @@
     ~/.gitignore_global: homedir_files/gitignore_global
     ~/.tmux: homedir_files/tmux
     ~/.tmux.conf: homedir_files/tmux.conf
-    ~/.vim: homedir_files/vim
     ~/.vimrc: homedir_files/vimrc
 
 - shell:

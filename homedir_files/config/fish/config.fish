@@ -4,7 +4,8 @@
 
 umask 002
 
-set -x EDITOR vim
+set -x EDITOR nvim
+abbr -a vim nvim
 
 # These aliases depend on the binaries being available.
 function add_abbr_requiring_binaries

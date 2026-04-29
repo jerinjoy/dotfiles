@@ -26,6 +26,19 @@ return {
     opts = {},
   },
   {
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    opts = {
+      options = {
+        diagnostics = "nvim_lsp",
+        show_close_icon = false,
+        show_buffer_close_icons = false,
+        separator_style = "slant",
+      },
+    },
+  },
+  {
     "echasnovski/mini.pairs",
     event = "InsertEnter",
     opts = {},
