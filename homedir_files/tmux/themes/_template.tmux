@@ -41,3 +41,9 @@ set -g pane-border-style "fg=#{@pane_border}"
 set -g pane-active-border-style "fg=#{@pane_active_border}"
 set -g message-style "bg=#{@bar_bg} fg=#{@msg_fg}"
 set -g message-command-style "bg=#{@bar_bg} fg=#{@msg_fg}"
+
+# zellij-like pane decoration
+set -g pane-border-lines heavy
+set -g pane-border-indicators both
+set -g pane-border-status top
+set -g pane-border-format "#[fg=#{?pane_active,#{@active_bg},#{@pane_border}}]━#[fg=#{@dark},bg=#{?pane_active,#{@active_bg},#{@band_bg}},bold] #{pane_index} #[fg=#{?pane_active,#{@text},#{@muted}},bg=#{@band_bg}] #{pane_current_command} #[fg=#{@band_bg},bg=default]"
