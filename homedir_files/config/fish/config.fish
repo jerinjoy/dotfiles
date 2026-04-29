@@ -5,6 +5,7 @@
 umask 002
 
 set -x EDITOR nvim
+set -g fish_key_bindings fish_default_key_bindings
 abbr -a vim nvim
 
 # These aliases depend on the binaries being available.
