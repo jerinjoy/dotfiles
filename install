@@ -6,31 +6,79 @@
 
 set -e
 
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Minimal install: just copy config files to home directory
+if [ "$1" = "--copy" ]; then
+    confirm_copy() {
+        local dest="$1"
+        if [ -e "$dest" ]; then
+            printf "Overwrite %s? [y/N] " "$dest"
+            read -r answer
+            [ "$answer" = "y" ] || [ "$answer" = "Y" ]
+        fi
+    }
+
+    copy_file() {
+        local src="$1" dest="$2"
+        if [ ! -e "$dest" ] || confirm_copy "$dest"; then
+            cp -r "$src" "$dest"
+        fi
+    }
+
+    mkdir -p ~/.config/fish ~/.config/nvim
+    copy_file "${BASEDIR}/homedir_files/config/fish/config.fish" ~/.config/fish/config.fish
+    copy_file "${BASEDIR}/homedir_files/config/fish/fish_plugins" ~/.config/fish/fish_plugins
+    cp -r "${BASEDIR}/homedir_files/config/nvim/"* ~/.config/nvim/
+    copy_file "${BASEDIR}/homedir_files/gitconfig" ~/.gitconfig
+    copy_file "${BASEDIR}/homedir_files/gitignore_global" ~/.gitignore_global
+    copy_file "${BASEDIR}/homedir_files/tmux.conf" ~/.tmux.conf
+    copy_file "${BASEDIR}/homedir_files/tmux" ~/.tmux
+    copy_file "${BASEDIR}/homedir_files/vimrc" ~/.vimrc
+
+    if [ ! -f ~/user.gitconfig ]; then
+        printf "Enter your git name: "
+        read -r name
+        printf "Enter your git email: "
+        read -r email
+        printf "[user]\n    name = %s\n    email = %s\n" "$name" "$email" > ~/user.gitconfig
+        echo "Created ~/user.gitconfig"
+    fi
+
+    echo "Done — config files copied to home directory"
+    exit 0
+fi
+
 CONFIG="base"
 SUFFIX=".install.conf.yaml"
 DOTBOT_DIR="dotbot"
-
 DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-case "$(uname)" in
-    Darwin)
-        OSNAME="macos"
-        "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${OSNAME}${SUFFIX}" "${@}"
-        ;;
-    Linux)
-        OSNAME="linux"
-        "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${OSNAME}${SUFFIX}" "${@}"
-        ;;
-    *)
-        echo "Unsupported OS"
-        exit 1
-        ;;
-esac
+BASE_ONLY=false
+if [ "$1" = "--base-only" ]; then
+    BASE_ONLY=true
+    shift
+fi
 
+if [ "$BASE_ONLY" = false ]; then
+    case "$(uname)" in
+        Darwin)
+            OSNAME="macos"
+            "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${OSNAME}${SUFFIX}" "${@}"
+            ;;
+        Linux)
+            OSNAME="linux"
+            "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${OSNAME}${SUFFIX}" "${@}"
+            ;;
+        *)
+            echo "Unsupported OS"
+            exit 1
+            ;;
+    esac
+fi
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}${SUFFIX}" "${@}"
