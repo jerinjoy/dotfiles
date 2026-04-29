@@ -25,4 +25,18 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+  {
+    "echasnovski/mini.pairs",
+    event = "InsertEnter",
+    opts = {},
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = "BufReadPost",
+    opts = {
+      indent = { char = "│" },
+      scope = { enabled = true },
+    },
+  },
 }
