@@ -2,9 +2,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-[submodule "homedir_files/tmux/plugins/tmux-sensible"]
-	path = homedir_files/tmux/plugins/tmux-sensible
-	url = https://github.com/tmux-plugins/tmux-sensible.git
 [submodule "homedir_files/tmux/plugins/tpm"]
 	path = homedir_files/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
