@@ -28,10 +28,10 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-" --- Cursor shape (insert/replace/normal) ---
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+" --- Cursor shape (DECSCUSR: bar/underline/block) ---
+let &t_SI = "\e[5 q"
+let &t_SR = "\e[3 q"
+let &t_EI = "\e[1 q"
 set guicursor=a:blinkon0
 
 " --- Buffers ---
@@ -43,6 +43,7 @@ nnoremap <C-k> :bd<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline_theme = 'tokyonight'
 let g:airline_mode_map = {
     \ '__' : '-',
     \ 'n'  : 'N',
@@ -54,9 +55,6 @@ let g:airline_mode_map = {
     \ '' : 'V',
     \ 's'  : 'S',
     \ }
-
-" --- NERDTree ---
-map <F8> :NERDTreeToggle<CR>
 
 " --- Tagbar ---
 let g:tagbar_ctags_bin = "/opt/homebrew/bin/ctags"
@@ -101,6 +99,15 @@ endif
 " --- Plugins ---
 call plug#begin('~/.vim/plugged')
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/tagbar'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/vim-markdown'
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 " --- Theme ---
