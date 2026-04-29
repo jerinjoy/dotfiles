@@ -27,7 +27,8 @@ opt.undofile = true
 opt.undolevels = 1000
 opt.scrolloff = 8
 opt.updatetime = 250
-opt.mouse = ""
+opt.mouse = "a"
+opt.clipboard = "unnamedplus"
 
 -- --- Keymaps ---
 local map = vim.keymap.set
