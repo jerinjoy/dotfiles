@@ -44,6 +44,19 @@ return {
     opts = {},
   },
   {
+    "folke/snacks.nvim",
+    lazy = false,
+    keys = {
+      { "<C-/>", function() Snacks.terminal.toggle() end, desc = "Toggle terminal", mode = { "n", "t" } },
+      { "<C-_>", function() Snacks.terminal.toggle() end, desc = "Toggle terminal", mode = { "n", "t" } },
+    },
+    opts = {
+      terminal = {
+        win = { style = "float" },
+      },
+    },
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     event = "BufReadPost",
