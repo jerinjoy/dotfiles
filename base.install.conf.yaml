@@ -21,6 +21,20 @@
     ~/.vimrc: homedir_files/vimrc
 
 - shell:
+    - command: |
+        /bin/sh -c '
+        if [ ! -f "$HOME/user.gitconfig" ]; then
+          printf "Enter your git name: " >&2
+          read name
+          printf "Enter your git email: " >&2
+          read email
+          printf "[user]\n    name = %s\n    email = %s\n" "$name" "$email" > "$HOME/user.gitconfig"
+          echo "Created ~/user.gitconfig"
+        fi'
+      description: Setting up ~/user.gitconfig (skipped if exists)
+      stdout: true
+      stdin: true
+      stderr: true
     - [git submodule update --init --recursive, Installing submodules]
 
 - shell:
