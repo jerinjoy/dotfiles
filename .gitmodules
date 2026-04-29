@@ -9,9 +9,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "homedir_files/config/kickstart.nvim"]
-	path = homedir_files/config/kickstart.nvim
-	url = https://github.com/jerinjoy/kickstart.nvim.git
 [submodule "homedir_files/tmux/plugins/tmux-yank"]
 	path = homedir_files/tmux/plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank.git

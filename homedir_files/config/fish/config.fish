@@ -37,7 +37,7 @@ abbr -a gstatus "git status"
 abbr -a gsubls "git submodule status --recursive"
 abbr -a gshalist "git diff-tree --no-commit-id --name-only -r "
 
-abbr -a h "history | ag"
+abbr -a h "history | rg"
 abbr -a c clear
 
 switch (uname)
@@ -60,20 +60,19 @@ if test -d $HOME/bin
     fish_add_path -pmP $HOME/bin/
 end
 
-# Tide Colors
-set -x tide_git_color_branch f1fa8c # yellow
-set -x tide_git_color_operation ff79c6 # purple
-set -x tide_git_color_stash 8be9fd # cyan
-set -x tide_git_color_conflicted ff5555 # red
-set -x tide_git_color_staged ff79c6 # pink
-set -x tide_git_color_dirty ffb86c # orange
-set -x tide_git_color_untracked 50fa7b # green
+# Tide Colors (Tokyo Night)
+set -x tide_git_color_branch 7aa2f7 # blue
+set -x tide_git_color_operation bb9af7 # purple
+set -x tide_git_color_stash 7dcfff # cyan
+set -x tide_git_color_conflicted f7768e # red
+set -x tide_git_color_staged bb9af7 # purple
+set -x tide_git_color_dirty e0af68 # yellow
+set -x tide_git_color_untracked 9ece6a # green
 
-set -x tide_color_time 6272a4
+set -x tide_color_time 565f89
 
-# Set FZF Dracula theme
-# https://draculatheme.com/fzf
-set -x FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
+# FZF Tokyo Night theme
+set -x FZF_DEFAULT_OPTS "--color=fg:#c0caf5,bg:#1a1b26,hl:#bb9af7 --color=fg+:#c0caf5,bg+:#292e42,hl+:#7aa2f7 --color=info:#e0af68,prompt:#9ece6a,pointer:#f7768e --color=marker:#f7768e,spinner:#e0af68,header:#565f89"
 
 # Place all the local configs here. This file isn't checked into the repo.
 if test -e $HOME/local.config.fish
