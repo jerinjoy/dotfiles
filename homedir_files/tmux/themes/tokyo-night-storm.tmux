@@ -20,6 +20,7 @@ set -g @c5 "#bb9af7"   # pink
 # pills
 set -g @session_bg      "#9ece6a"  # green left pill
 set -g @active_bg       "#e0af68"  # yellow active tab
+set -g @inactive_bg     "#292e42"   # inactive tab pill
 set -g @time_bg         "#9ece6a"  # green time pill
 
 # borders / messages

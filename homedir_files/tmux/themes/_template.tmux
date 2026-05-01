@@ -28,7 +28,7 @@ set -g status-left '#[fg=#{@session_bg},bg=#{@bar_bg}]#[fg=#{@dark},bg=#{@ses
 setw -g window-status-style "bg=#{@band_bg},fg=#{@muted}"
 
 # Inactive windows: colored index cycle; neutral name
-setw -g window-status-format "#[bg=#{@band_bg},fg=#{?#{==:#I,1},#{@c1},#{?#{==:#I,2},#{@c2},#{?#{==:#I,3},#{@c3},#{?#{==:#I,4},#{@c4},#{@c5}}}}},bold] #I #[fg=#{@text}]#W "
+setw -g window-status-format '#[fg=#{@inactive_bg},bg=#{@band_bg}]#[bg=#{@inactive_bg},fg=#{?#{==:#I,1},#{@c1},#{?#{==:#I,2},#{@c2},#{?#{==:#I,3},#{@c3},#{?#{==:#I,4},#{@c4},#{@c5}}}}},bold] #I #[fg=#{@text}]#W #[fg=#{@inactive_bg},bg=#{@band_bg}]'
 
 # Active window pill (bridges band)
 setw -g window-status-current-format '#[fg=#{@active_bg},bg=#{@band_bg}]#[fg=#{@dark},bg=#{@active_bg},bold] #I #W* #[fg=#{@active_bg},bg=#{@band_bg}]'

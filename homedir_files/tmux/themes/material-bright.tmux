@@ -19,6 +19,7 @@ set -g @c5 "#ab47bc"     # Purple 400
 # Pills
 set -g @session_bg       "#90CAF9"   # Green 500 (session pill)
 set -g @active_bg        "#FB8C00"   # Amber 500 (active tab)
+set -g @inactive_bg     "#2c2c2c"   # inactive tab pill
 set -g @time_bg          "#90CAF9"
 
 # Borders / messages

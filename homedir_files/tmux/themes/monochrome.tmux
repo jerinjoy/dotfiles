@@ -19,6 +19,7 @@ set -g @c5 "#fe640b"   # Orange (bold)
 # Pills
 set -g @session_bg   "#b3b3b3"   # Mid gray session pill
 set -g @active_bg    "#f5f5f5"   # Bright fill for active tab
+set -g @inactive_bg     "#313244"   # inactive tab pill
 set -g @time_bg      "#b3b3b3"
 
 # Borders/messages
