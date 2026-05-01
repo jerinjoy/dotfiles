@@ -12,7 +12,13 @@
       force: true
 
 - link:
-    ~/.config: homedir_files/config
+    ~/.config/fish: homedir_files/config/fish
+    ~/.config/ghostty: homedir_files/config/ghostty
+    ~/.config/git: homedir_files/config/git
+    ~/.config/nvim: homedir_files/config/nvim
+    ~/.config/rclone: homedir_files/config/rclone
+    ~/.config/zed: homedir_files/config/zed
+    ~/.config/zellij: homedir_files/config/zellij
     ~/.gitconfig: homedir_files/gitconfig
     ~/.gitignore_global: homedir_files/gitignore_global
     ~/.tmux: homedir_files/tmux

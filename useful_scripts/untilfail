@@ -4,14 +4,19 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+# Run a command repeatedly until it fails (exits non-zero).
+# Usage: untilfail <command> [args...]
 
-# Pipefail explanation:
-# https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
-set -euo pipefail
+set -uo pipefail
+
+if [ $# -eq 0 ]; then
+  echo "usage: untilfail <command> [args...]" >&2
+  exit 2
+fi
 
 n=0
-while test 0 -eq $? ; do
-  n=$(($n+1))
-  echo $n
-  $@
+while true; do
+  n=$((n + 1))
+  echo "[run $n]"
+  "$@" || exit $?
 done
