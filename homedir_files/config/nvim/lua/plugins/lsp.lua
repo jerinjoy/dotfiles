@@ -8,7 +8,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     opts = {
-      ensure_installed = { "lua_ls", "ruff" },
+      ensure_installed = { "lua_ls", "ruff", "rust-analyzer" },
     },
   },
   {
