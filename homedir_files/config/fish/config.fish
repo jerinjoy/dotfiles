@@ -60,19 +60,24 @@ if test -d $HOME/bin
     fish_add_path -pmP $HOME/bin/
 end
 
-# Tide Colors (Tokyo Night)
-set -x tide_git_color_branch 7aa2f7 # blue
-set -x tide_git_color_operation bb9af7 # purple
-set -x tide_git_color_stash 7dcfff # cyan
-set -x tide_git_color_conflicted f7768e # red
-set -x tide_git_color_staged bb9af7 # purple
-set -x tide_git_color_dirty e0af68 # yellow
-set -x tide_git_color_untracked 9ece6a # green
+# Tide Colors (Ithaca Dark)
+set -x tide_git_color_branch 47a5fa # blue
+set -x tide_git_color_operation 8773ff # purple
+set -x tide_git_color_stash 3cd7f5 # cyan
+set -x tide_git_color_conflicted f05f69 # red
+set -x tide_git_color_staged 8773ff # purple
+set -x tide_git_color_dirty ffdc32 # yellow
+set -x tide_git_color_untracked 6ee146 # green
 
-set -x tide_color_time 565f89
+set -x tide_color_time 67788a
 
-# FZF Tokyo Night theme
-set -x FZF_DEFAULT_OPTS "--color=fg:#c0caf5,bg:#1a1b26,hl:#bb9af7 --color=fg+:#c0caf5,bg+:#292e42,hl+:#7aa2f7 --color=info:#e0af68,prompt:#9ece6a,pointer:#f7768e --color=marker:#f7768e,spinner:#e0af68,header:#565f89"
+# Set OS icon dynamically based on current system
+# Use universal variable to override any existing value from fish_variables
+_tide_detect_os | read -l os_icon os_color os_bg_color
+set -U tide_os_icon $os_icon
+
+# FZF Ithaca Dark theme
+set -x FZF_DEFAULT_OPTS "--color=fg:#f1f4f7,bg:#0f191e,hl:#8773ff --color=fg+:#f1f4f7,bg+:#1c2b33,hl+:#47a5fa --color=info:#ffdc32,prompt:#6ee146,pointer:#f05f69 --color=marker:#f05f69,spinner:#ffdc32,header:#67788a"
 
 # Place all the local configs here. This file isn't checked into the repo.
 if test -e $HOME/local.config.fish

@@ -8,8 +8,22 @@ set -e
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Parse flags for copy mode
+COPY_MODE=false
+FORCE=false
+for arg in "$@"; do
+    case "$arg" in
+        --copy)
+            COPY_MODE=true
+            ;;
+        --force)
+            FORCE=true
+            ;;
+    esac
+done
+
 # Minimal install: just copy config files to home directory
-if [ "$1" = "--copy" ]; then
+if [ "$COPY_MODE" = true ]; then
     confirm_copy() {
         local dest="$1"
         if [ -e "$dest" ]; then
@@ -21,7 +35,20 @@ if [ "$1" = "--copy" ]; then
 
     copy_file() {
         local src="$1" dest="$2"
-        if [ ! -e "$dest" ] || confirm_copy "$dest"; then
+        # Check if src and dest are the same file (including via symlink)
+        if [ -e "$dest" ] && [ "$src" -ef "$dest" ]; then
+            echo "Skipping $dest (same file as source)"
+            return 0
+        fi
+        if [ "$FORCE" = true ] || [ ! -e "$dest" ] || confirm_copy "$dest"; then
+            # If both src and dest are directories, remove dest first to avoid nesting
+            if [ -d "$src" ] && [ -d "$dest" ]; then
+                rm -rf "$dest"
+            fi
+            # Remove dest if it's a symlink to avoid cp "same file" error
+            if [ -L "$dest" ]; then
+                rm -f "$dest"
+            fi
             cp -r "$src" "$dest"
         fi
     }
@@ -29,7 +56,7 @@ if [ "$1" = "--copy" ]; then
     mkdir -p ~/.config/fish ~/.config/nvim
     copy_file "${BASEDIR}/homedir_files/config/fish/config.fish" ~/.config/fish/config.fish
     copy_file "${BASEDIR}/homedir_files/config/fish/fish_plugins" ~/.config/fish/fish_plugins
-    cp -r "${BASEDIR}/homedir_files/config/nvim/"* ~/.config/nvim/
+    copy_file "${BASEDIR}/homedir_files/config/nvim" ~/.config/nvim
     copy_file "${BASEDIR}/homedir_files/gitconfig" ~/.gitconfig
     copy_file "${BASEDIR}/homedir_files/gitignore_global" ~/.gitignore_global
     copy_file "${BASEDIR}/homedir_files/tmux.conf" ~/.tmux.conf
@@ -57,6 +84,16 @@ DOTBOT_BIN="bin/dotbot"
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
+
+# Fix circular symlink issue: if ~/.config is a symlink to homedir_files/config,
+# remove it so dotbot can create individual symlinks
+if [ -L ~/.config ] && [ "$(readlink ~/.config)" = "${BASEDIR}/homedir_files/config" ]; then
+    echo "Removing circular ~/.config symlink..."
+    rm ~/.config
+fi
+
+# Ensure ~/.config exists as a directory (not a symlink)
+mkdir -p ~/.config
 
 BASE_ONLY=false
 if [ "$1" = "--base-only" ]; then
