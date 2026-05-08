@@ -1,0 +1,24 @@
+# Ithaca Light theme
+# Syntax Highlighting Colors
+fish_color_normal 1c2b33
+fish_color_command 0064e0
+fish_color_keyword 6441d2
+fish_color_quote f0aa19
+fish_color_redirection 1c2b33
+fish_color_end af5a00
+fish_color_option 6441d2
+fish_color_error e6193b
+fish_color_param 6441d2
+fish_color_comment 67788a
+fish_color_selection --background=cbd2d9
+fish_color_search_match --background=cbd2d9
+fish_color_operator 28d232
+fish_color_escape 6441d2
+fish_color_autosuggestion 67788a
+
+# Completion Pager Colors
+fish_pager_color_progress 67788a
+fish_pager_color_prefix 0073aa
+fish_pager_color_completion 1c2b33
+fish_pager_color_description 67788a
+fish_pager_color_selected_background --background=cbd2d9
