@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2025 Jerin Joy
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# Ithaca Light - Ghostty theme
+# Based on the Ithaca colorscheme
+
+# Background and foreground
+background = #f1f4f7
+foreground = #1c2b33
+
+# Selection
+selection-background = #cbd2d9
+selection-foreground = #1c2b33
+
+# Cursor
+cursor-color = #1c2b33
+cursor-text = #f1f4f7
+
+# ANSI colors
+# Black
+palette = 0=#cbd2d9
+palette = 8=#67788a
+
+# Red
+palette = 1=#e6193b
+palette = 9=#e6193b
+
+# Green
+palette = 2=#28d232
+palette = 10=#28d232
+
+# Yellow
+palette = 3=#f0aa19
+palette = 11=#f0aa19
+
+# Blue
+palette = 4=#0064e0
+palette = 12=#0064e0
+
+# Magenta/Purple
+palette = 5=#6441d2
+palette = 13=#6441d2
+
+# Cyan
+palette = 6=#0073aa
+palette = 14=#0073aa
+
+# White
+palette = 7=#1c2b33
+palette = 15=#1c2b33
