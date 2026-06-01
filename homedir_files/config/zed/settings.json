@@ -1,61 +1,68 @@
 // SPDX-FileCopyrightText: 2023 Jerin Joy
-    //
-    // SPDX-License-Identifier: Apache-2.0
+//
+// SPDX-License-Identifier: Apache-2.0
 
-    // Zed settings
-    //
-    // For information on how to configure Zed, see the Zed
-    // documentation: https://zed.dev/docs/configuring-zed
-    //
-    // To see all of Zed's default settings without changing your
-    // custom settings, run `zed: open default settings` from the
-    // command palette (cmd-shift-p / ctrl-shift-p)
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": true,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "agent": {
+    "default_model": {
+      "effort": "high",
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
+      "enable_thinking": true
+    },
+    "tool_permissions": {
+      "default": "allow",
+      "tools": {},
+    },
+  },
+
+  "ssh_connections": [
     {
-      "agent": {
-        "default_model": {
-          "provider": "google",
-          "model": "gemini-2.5-flash"
-        },
-        "version": "2"
-      },
-
-      "ssh_connections": [
+      "host": "obelix.tailb54bde.ts.net",
+      "username": "joy",
+      "args": [],
+      "projects": [
         {
-          "host": "joy.ba.rivosinc.com",
-          "projects": [
-            {
-              "paths": [
-                "~/workspace/ctest"
-              ]
-            },
-            {
-              "paths": [
-                "~/workspace/jumpstart"
-              ]
-            },
-            {
-              "paths": [
-                "~/workspace/riscv-tests"
-              ]
-            },
-            {
-              "paths": [
-                "~/workspace/spike"
-              ]
-            }
+          "paths": [
+            "/Users/joy/workspace/JumpStart"
+          ]
+        },
+        {
+          "paths": [
+            "/Users/joy/workspace/rust_book/./"
           ]
         }
-      ],
-
-      "vim_mode": true,
-
-      "ui_font_size": 18,
-      "buffer_font_family": "FiraCode Nerd Font Mono",
-      "buffer_font_size": 16,
-      "buffer_font_features": {
-        "liga": false,
-        "calt": false
-      },
-
-      "theme": "Ithaca Dark"
+      ]
+    },
+    {
+      "host": "obelix",
+      "args": [],
+      "projects": []
     }
+  ],
+
+  "vim_mode": true,
+
+  "ui_font_size": 18,
+  "buffer_font_family": "FiraCode Nerd Font Mono",
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "liga": false,
+    "calt": false,
+  },
+}

@@ -117,3 +117,5 @@
 	recurse = true
 [branch]
 	sort = -committerdate
+[init]
+	defaultBranch = main
