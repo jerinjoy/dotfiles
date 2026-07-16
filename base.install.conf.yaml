@@ -19,6 +19,8 @@
     ~/.config/rclone: homedir_files/config/rclone
     ~/.config/zed: homedir_files/config/zed
     ~/.config/zellij: homedir_files/config/zellij
+    ~/.claude/settings.json: homedir_files/config/claude/settings.json
+    ~/.claude/statusline.sh: homedir_files/config/claude/statusline.sh
     ~/.gitconfig: homedir_files/gitconfig
     ~/.gitignore_global: homedir_files/gitignore_global
     ~/.tmux: homedir_files/tmux
