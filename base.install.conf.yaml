@@ -16,7 +16,6 @@
     ~/.config/ghostty: homedir_files/config/ghostty
     ~/.config/git: homedir_files/config/git
     ~/.config/nvim: homedir_files/config/nvim
-    ~/.config/rclone: homedir_files/config/rclone
     ~/.config/zed: homedir_files/config/zed
     ~/.config/zellij: homedir_files/config/zellij
     ~/.claude/settings.json: homedir_files/config/claude/settings.json

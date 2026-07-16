@@ -15,7 +15,7 @@
       stderr: true
 
 - shell:
-    - command: '[ "$SHELL" = "$(which fish)" ] || chsh -s $(which fish) -u $(whoami)'
+    - command: 'dscl . -read /Users/$(whoami) UserShell | grep -qF "$(which fish)" || chsh -s $(which fish) -u $(whoami)'
       description: Making fish the default shell (skipped if already set).
       stdout: true
       stdin: true
