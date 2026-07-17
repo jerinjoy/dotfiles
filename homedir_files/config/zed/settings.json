@@ -11,6 +11,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "theme": "Tokyo Night Storm",
   "telemetry": {
     "diagnostics": true,
     "metrics": true,
@@ -44,7 +48,22 @@
         },
         {
           "paths": [
+            "/Users/joy/workspace/RustyArm64"
+          ]
+        },
+        {
+          "paths": [
+            "/Users/joy/workspace/learn_langgraph"
+          ]
+        },
+        {
+          "paths": [
             "/Users/joy/workspace/rust_book/./"
+          ]
+        },
+        {
+          "paths": [
+            "/Users/joy/workspace/ucie-automata"
           ]
         }
       ]
