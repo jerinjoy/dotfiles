@@ -77,6 +77,10 @@
 
   "vim_mode": true,
 
+  "terminal": {
+    "font_family": "FiraCode Nerd Font Mono",
+  },
+
   "ui_font_size": 18,
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "buffer_font_size": 16,
