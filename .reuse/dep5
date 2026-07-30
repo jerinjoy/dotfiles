@@ -6,3 +6,7 @@ Source: https://github.com/fsfe/reuse-tool
 Files: docs/terminal.jpg homedir_files/config/nvim/* homedir_files/config/fish/fish_plugins Aptfile
 Copyright: 2023 by Jerin Joy
 License: Apache-2.0
+
+Files: homedir_files/config/claude/settings.json homedir_files/config/claude/statusline.sh homedir_files/config/fish/themes/Ithaca*.theme homedir_files/config/git/ignore homedir_files/config/opencode/opencode.jsonc homedir_files/config/zed/themes/ithaca.json
+Copyright: 2023 by Jerin Joy
+License: Apache-2.0

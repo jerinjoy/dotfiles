@@ -40,4 +40,3 @@ set -g status-left '#[fg=#{@session_bg},bg=#{@bar_bg}]#[fg=#{@dark},bg=#{@ses
 
 # Time pill: light text on gray + macOS clock format (e.g. "Thu Oct 17  3:24 PM")
 set -g status-right '#{prefix_highlight} #[fg=#{@time_bg},bg=#{@bar_bg}]#[fg=#{@text},bg=#{@time_bg},bold] %a %b %-d  %-l:%M %p #[fg=#{@time_bg},bg=#{@bar_bg}]'
-
