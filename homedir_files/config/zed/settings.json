@@ -11,11 +11,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "completions": {
+    "lsp": true
+  },
   "edit_predictions": {
-    "open_ai_compatible_api": {
-      "model": "",
-      "api_url": "https://openrouter.ai/api/v1/completions"
-    },
     "mode": "subtle",
     "provider": "zed"
   },
