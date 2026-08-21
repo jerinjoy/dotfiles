@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-theme = ithaca-dark
+theme = TokyoNight Storm
 font-size = 16
 font-family = FiraCode Nerd Font Mono
 
